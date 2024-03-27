@@ -1,0 +1,88 @@
+body {
+  /* max-width: 1280px; */
+
+  font-size: 12px;
+}
+.container {
+  max-width: 1280px;
+  padding: 2rem;
+  text-align: center;
+  /* border: black 2px solid; */
+  display: flex;
+  margin: 0 auto;
+}
+/* ------------HEADER ------------ */
+.logo {
+  height: 50px;
+  width: 120px;
+  cursor: pointer;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.header {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  /* display: flex; */
+  /* display: inline-block; */
+  background-color: #fff;
+  color: #09b1ba;
+  font-weight: bold;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 12px;
+}
+.buttons button {
+  /* margin: 5px; */
+  /* border: red solid 3px; */
+  margin-right: 10px;
+}
+.buttons button:last-child {
+  margin-left: 30px;
+  background-color: #09b1ba;
+  color: #fff;
+}
+
+/* ------------   MAIN    ------------------ */
+
+.hero-block {
+  /* height: 950px; */
+  width: 100%;
+  /* border: black solid 2px; */
+  /* overflow: hidden; */
+}
+.hero-block img {
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+}
+.card-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.home-card-wrapper {
+  height: 1500px;
+  border: salmon 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.home-card-wrapper img {
+  object-fit: cover;
+  width: 250px;
+  height: 350px;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.card-avatar-username {
+  display: flex;
+  flex-direction: column;
+}
