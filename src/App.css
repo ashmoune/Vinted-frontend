@@ -3,6 +3,12 @@ body {
 
   font-size: 12px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
 .container {
   max-width: 1280px;
   padding: 2rem;
@@ -44,45 +50,10 @@ button {
   /* border: red solid 3px; */
   margin-right: 10px;
 }
-.buttons button:last-child {
+.button-sale {
   margin-left: 30px;
   background-color: #09b1ba;
   color: #fff;
 }
 
 /* ------------   MAIN    ------------------ */
-
-.hero-block {
-  /* height: 950px; */
-  width: 100%;
-  /* border: black solid 2px; */
-  /* overflow: hidden; */
-}
-.hero-block img {
-  object-fit: contain;
-  max-width: 100%;
-  height: auto;
-}
-.card-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-.home-card-wrapper {
-  height: 1500px;
-  border: salmon 1px solid;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.home-card-wrapper img {
-  object-fit: cover;
-  width: 250px;
-  height: 350px;
-  margin-right: 5px;
-  margin-top: 10px;
-}
-.card-avatar-username {
-  display: flex;
-  flex-direction: column;
-}

@@ -1,5 +1,6 @@
 import React from "react";
 import banner from "../assets/images/banner2.jpg";
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   const { data } = props;
@@ -18,12 +19,24 @@ const Home = (props) => {
           <div className="card-container">
             {data.offers.map((offers) => {
               return (
-                <div className="card-avatar-username" key={offers.id}>
-                  {/* {offers.owner.account.avatar} */}
-                  {offers.owner.account.username}
-                  <img src={offers.product_image.secure_url} alt="" />
+                <div className="card-avatar-username" key={offers._id}>
+                  <div className="avatar">
+                    <img src={offers.owner.account.avatar?.secure_url} alt="" />
+                    {offers.owner.account.username}
+                  </div>
+                  <Link key={offers.id} to={`/Offer/${offers._id}`}>
+                    <img src={offers.product_image.secure_url} alt="" />
+                  </Link>
+
+                  <div key={offers.id}>{offers.product_price} €</div>
+
                   {offers.product_details.map((product, index) => {
-                    return <div key={index}>{product.marque}</div>;
+                    return (
+                      <>
+                        <div>{product.MARQUE}</div>
+                        <div>{product.TAILLE}</div>
+                      </>
+                    );
                   })}
                 </div>
               );
