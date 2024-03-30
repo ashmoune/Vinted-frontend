@@ -30,6 +30,7 @@ const SignUp = ({ handleToken }) => {
           newsletter: newsLetter,
         }
       );
+
       // J'enregistre le token dans mon state et mes cookies
       handleToken(response.data.token);
       navigate("/");

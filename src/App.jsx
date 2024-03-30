@@ -24,7 +24,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
 
-  // Cette fonction permet de stocker le token dans le state et dans les cookies ou supprimer le token dans le state et dans les cookies
+  // Cette fonction permet de stocker le token dans le state et dans les cookies ou
+  //  supprimer le token dans le state et dans les cookies
   const handleToken = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 7 });
