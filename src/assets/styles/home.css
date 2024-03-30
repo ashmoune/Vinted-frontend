@@ -42,3 +42,33 @@
   align-items: flex-end;
   gap: 5px;
 }
+.image-web {
+  position: relative;
+}
+
+.image-web .box {
+  position: absolute;
+  top: 40%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  background-color: white;
+  text-align: center;
+  height: 270px;
+  width: 410px;
+  border-radius: 5px;
+}
+.box h2 {
+  font-size: 30px;
+  margin-top: 50px;
+  padding-right: 40px;
+  font-family: "Roboto", sans-serif;
+}
+.box button {
+  margin-top: 50px;
+  margin-right: 120px;
+  background-color: #09b1ba;
+  color: #fff;
+  padding: 12px;
+  font-size: 15px;
+}

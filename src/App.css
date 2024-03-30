@@ -3,6 +3,7 @@ body {
 
   font-size: 12px;
 }
+
 .loading {
   display: flex;
   justify-content: center;
@@ -49,6 +50,7 @@ button {
   /* margin: 5px; */
   /* border: red solid 3px; */
   margin-right: 10px;
+  font-family: "Roboto", sans-serif;
 }
 .button-sale {
   margin-left: 30px;

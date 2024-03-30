@@ -10,6 +10,13 @@ const Home = (props) => {
         <div className="hero-block">
           <div className="hero-block-background">
             <div className="image-web">
+              <div className="box">
+                <h2>
+                  Prêts à faire du tri <br />
+                  dans vos placards ?
+                </h2>
+                <button>Commencer à vendre</button>
+              </div>
               <img src={banner} alt="" />
             </div>
           </div>
