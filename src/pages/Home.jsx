@@ -39,10 +39,10 @@ const Home = (props) => {
 
                   {offers.product_details.map((product, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         <div>{product.MARQUE}</div>
                         <div>{product.TAILLE}</div>
-                      </>
+                      </div>
                     );
                   })}
                 </div>
