@@ -22,7 +22,7 @@ const SignUp = ({ handleToken }) => {
     try {
       setError("");
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://site--backend-vinted--rh6mx4gc4kyd.code.run/user/signup",
         {
           email: email,
           username: username,

@@ -1,10 +1,31 @@
+import { useEffect, useState } from "react";
 import React from "react";
 import banner from "../assets/images/banner2.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Home = (props) => {
-  const { data } = props;
-  return (
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/offers`);
+        console.log(response.data);
+        setIsLoading(false);
+        setData(response.data);
+      } catch (error) {
+        console.log("error ==>", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <p>Loading please wait ..</p>
+  ) : (
     <>
       <div className="main">
         <div className="hero-block">
@@ -15,7 +36,9 @@ const Home = (props) => {
                   Prêts à faire du tri <br />
                   dans vos placards ?
                 </h2>
-                <button>Commencer à vendre</button>
+                <Link to="/publish">
+                  <button>Commencer à vendre</button>
+                </Link>
               </div>
               <img src={banner} alt="" />
             </div>
@@ -24,30 +47,36 @@ const Home = (props) => {
         </div>
         <div className="home-card-wrapper container">
           <div className="card-container">
-            {data.offers.map((offers) => {
-              return (
-                <div className="card-avatar-username" key={offers._id}>
+            {data &&
+              data.offers &&
+              data.offers.map((offer) => (
+                <div className="card-avatar-username" key={offer._id}>
                   <div className="avatar">
-                    <img src={offers.owner.account.avatar?.secure_url} alt="" />
-                    {offers.owner.account.username}
+                    {offer.owner.account.avatar &&
+                      offer.owner.account.avatar.secure_url && (
+                        <img
+                          src={offer.owner.account.avatar.secure_url}
+                          alt=""
+                        />
+                      )}
+                    {offer.owner.account.username}
                   </div>
-                  <Link key={offers.id} to={`/Offer/${offers._id}`}>
-                    <img src={offers.product_image.secure_url} alt="" />
+                  <Link key={offer._id} to={`/Offer/${offer._id}`}>
+                    {offer.product_image && offer.product_image.secure_url && (
+                      <img src={offer.product_image.secure_url} alt="" />
+                    )}
                   </Link>
 
-                  <div key={offers.id}>{offers.product_price} €</div>
+                  <div key={offer._id}>{offer.product_price} €</div>
 
-                  {offers.product_details.map((product, index) => {
-                    return (
-                      <div key={index}>
-                        <div>{product.MARQUE}</div>
-                        <div>{product.TAILLE}</div>
-                      </div>
-                    );
-                  })}
+                  {offer.product_details.map((product, index) => (
+                    <div key={index}>
+                      <div>{product.MARQUE}</div>
+                      <div>{product.TAILLE}</div>
+                    </div>
+                  ))}
                 </div>
-              );
-            })}
+              ))}
           </div>
         </div>
       </div>

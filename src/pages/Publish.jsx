@@ -26,15 +26,16 @@ const Publish = ({ userToken }) => {
       formData.append("color", color);
       formData.append("picture", picture);
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        "https://site--backend-vinted--rh6mx4gc4kyd.code.run/offer/publish",
         formData,
         {
           headers: {
             authorization: `Bearer ${userToken}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
-      console.log(response);
+      console.log(response.data);
     } catch (error) {
       console.log(error.response.data);
     }
