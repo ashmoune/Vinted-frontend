@@ -10,18 +10,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/offers`);
-        console.log(response.data);
-        setIsLoading(false);
-        setData(response.data);
-      } catch (error) {
-        console.log("error ==>", error);
-      }
+      const response = await axios.get(`http://localhost:3000/offers`);
+      // console.log(response.data);
+      setData(response.data);
+      setIsLoading(false);
     };
-
     fetchData();
   }, []);
+  // const username = response.data;
 
   return isLoading ? (
     <p>Loading please wait ..</p>
@@ -49,8 +45,8 @@ const Home = () => {
           <div className="card-container">
             {data &&
               data.offers &&
-              data.offers.map((offer) => (
-                <div className="card-avatar-username" key={offer._id}>
+              data.offers.map((offer, index) => (
+                <div className="card-avatar-username" key={index}>
                   <div className="avatar">
                     {offer.owner.account.avatar &&
                       offer.owner.account.avatar.secure_url && (

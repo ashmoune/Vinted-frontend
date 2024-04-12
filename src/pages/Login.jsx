@@ -6,24 +6,22 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "site--backend-vinted--rh6mx4gc4kyd.code.run/user/login",
-        {
-          email,
-          password,
-        }
-      );
-      // console.log(response.data );
+      const response = await axios.post("http://localhost:3000/user/login", {
+        email,
+        password,
+      });
+      console.log(response.data);
       const { token } = response.data;
       handleToken(token);
       navigate("/");
     } catch (error) {
+      setError("Utilisateur ou mot de passe inconnu");
       console.log(error);
     }
   };
@@ -48,11 +46,11 @@ const Login = ({ handleToken }) => {
             setPassword(e.target.value);
           }}
         />
-        <button>
-          <input type="submit" value="Se connecter" />
-        </button>
+        <button type="submit">Se connecter</button>
       </form>
+      {error && <p className="error-message">{error}</p>}
     </>
   );
 };
+
 export default Login;

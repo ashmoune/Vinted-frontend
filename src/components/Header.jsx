@@ -1,5 +1,4 @@
 import logo from "../assets/images/logo-vinted.svg";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = ({ handleToken, userToken }) => {
@@ -7,11 +6,14 @@ const Header = ({ handleToken, userToken }) => {
     <section className="header container">
       <div className="logo">
         {!userToken ? (
-          <Link to="/">
-            <img src={logo} alt="" />
-          </Link>
+          <>
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
+          </>
         ) : null}
       </div>
+
       <div className="buttons">
         {!userToken ? (
           <>
