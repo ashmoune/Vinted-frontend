@@ -46,6 +46,7 @@ const Login = ({ handleToken }) => {
             setPassword(e.target.value);
           }}
         />
+        <input></input>
         <button type="submit">Se connecter</button>
       </form>
       {error && <p className="error-message">{error}</p>}
