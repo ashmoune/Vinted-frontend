@@ -70,8 +70,8 @@ const Offer = () => {
           <button>Acheter</button>
         </div>
       </div>
-      <Link to="/">Retour vers L'accueil</Link>
-      <OtherProductsBySeller sellerId={data.owner._id} />
+
+      <OtherProductsBySeller sellerId={data.owner._id} id={id} />
     </>
   );
 };
