@@ -1,14 +1,18 @@
+// import Router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { useState } from "react";
+// import fontawesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+import Cookies from "js-cookie";
+
 // import style
 import "./index.css";
 import "./App.css";
 import "./assets/styles/offer.css";
 import "./assets/styles/home.css";
-// import Router
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import { useState } from "react";
-
-import Cookies from "js-cookie";
 
 // import Pages
 import Home from "./pages/Home";
@@ -20,6 +24,9 @@ import Publish from "./pages/Publish";
 // import components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+library.add(faMagnifyingGlass);
+
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("usertoken")) || null;
   const [sortPrice, setSortPrice] = useState(false);

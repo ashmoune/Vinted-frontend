@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import desktop from "../assets/images/desktop-1.png";
+import OtherProductsBySeller from "../components/OthersProductsBySellers";
 
 const Offer = () => {
   const [data, SetData] = useState({});
   const [isLoading, SetIsLoading] = useState(true);
   const { id } = useParams();
+
   // console.log(id);
   useEffect(() => {
     const fetchData = async () => {
@@ -36,14 +38,6 @@ const Offer = () => {
         </div>
 
         <div className="offer-info">
-          <div className="offer-owner">
-            {data.owner.account.username}
-            {data.owner.account &&
-              data.owner.account.avatar &&
-              data.owner.account.avatar.secure_url && (
-                <img src={data.owner.account.avatar.secure_url} alt="" />
-              )}
-          </div>
           <div className="offer-info-details">
             <h2>{data.product_price}€</h2>
             {data.product_details.map((detail) => {
@@ -51,9 +45,8 @@ const Offer = () => {
               const keys = Object.keys(detail);
               // console.log(keys);
               const keyName = keys[0];
-              // console.log(keyName);
               return (
-                <p key={keyName}>
+                <p className="offer-paraph-info" key={keyName}>
                   <span>{keyName}</span>
                   <span>{detail[keyName]}</span>
                 </p>
@@ -64,10 +57,21 @@ const Offer = () => {
             <h2>{data.product_name}</h2>
             <p>{data.product_description}</p>
           </div>
+          <div className="offer-owner">
+            {data.owner.account &&
+              data.owner.account.avatar &&
+              data.owner.account.avatar.secure_url && (
+                <span className="card-avatar-username-offer">
+                  <img src={data.owner.account.avatar.secure_url} alt="" />
+                </span>
+              )}
+            <span> {data.owner.account.username}</span>
+          </div>
           <button>Acheter</button>
         </div>
       </div>
       <Link to="/">Retour vers L'accueil</Link>
+      <OtherProductsBySeller sellerId={data.owner._id} />
     </>
   );
 };

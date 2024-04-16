@@ -1,5 +1,6 @@
 import logo from "../assets/images/logo-vinted.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({
   handleToken,
@@ -9,6 +10,7 @@ const Header = ({
   sortPrice,
   setSortPrice,
 }) => {
+  const location = useLocation();
   return (
     <section className="header container">
       <div className="logo">
@@ -18,8 +20,13 @@ const Header = ({
           </Link>
         </>
       </div>
+
       <div className="nav-header-container">
         <div className="search-container">
+          <FontAwesomeIcon
+            className="search-input-icon"
+            icon="fa-solid fa-magnifying-glass"
+          />
           <input
             type="text"
             className="search-input"
@@ -27,15 +34,20 @@ const Header = ({
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="sort-container">
-          <span>Trier par prix :</span>
-          <input
-            type="checkbox"
-            checked={sortPrice}
-            onChange={() => setSortPrice(!sortPrice)}
-            name="price"
-          />
-        </div>
+        {location.pathname === "/" ? (
+          <div className="sort-container">
+            <span>Trier par prix </span>
+            <label className="checkbox">
+              <input
+                type="checkbox"
+                checked={sortPrice}
+                onChange={() => setSortPrice(!sortPrice)}
+                name="price"
+              />
+              <span className="checkmark"></span>
+            </label>
+          </div>
+        ) : null}
       </div>
 
       <div className="buttons">
