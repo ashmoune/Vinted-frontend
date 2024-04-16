@@ -4,19 +4,23 @@ import banner from "../assets/images/banner2.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({ search, sortPrice }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(`http://localhost:3000/offers`);
+      const response = await axios.get(
+        `http://localhost:3000/offers?sort=${
+          sortPrice ? "price-desc" : "price-asc"
+        }&title=${search}`
+      );
       // console.log(response.data);
       setData(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [search, sortPrice]);
   // const username = response.data;
 
   return isLoading ? (

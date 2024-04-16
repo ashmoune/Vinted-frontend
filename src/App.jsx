@@ -22,6 +22,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("usertoken")) || null;
+  const [sortPrice, setSortPrice] = useState(false);
+  const [search, setSearch] = useState("");
 
   // Cette fonction permet de stocker le token dans le state et dans les cookies ou
   //  supprimer le token dans le state et dans les cookies
@@ -37,9 +39,19 @@ function App() {
   return (
     <>
       <Router>
-        <Header handleToken={handleToken} userToken={userToken} />
+        <Header
+          handleToken={handleToken}
+          userToken={userToken}
+          setUserToken={setUserToken}
+          sortPrice={sortPrice}
+          setSortPrice={setSortPrice}
+          setSearch={setSearch}
+        />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home search={search} sortPrice={sortPrice} />}
+          />
           <Route path="/Offer/:id" element={<Offer />} />
           <Route
             path="/signup"

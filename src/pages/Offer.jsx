@@ -34,7 +34,16 @@ const Offer = () => {
         <div className="offer-container-img">
           <img src={data.product_image.secure_url} alt="" />
         </div>
+
         <div className="offer-info">
+          <div className="offer-owner">
+            {data.owner.account.username}
+            {data.owner.account &&
+              data.owner.account.avatar &&
+              data.owner.account.avatar.secure_url && (
+                <img src={data.owner.account.avatar.secure_url} alt="" />
+              )}
+          </div>
           <div className="offer-info-details">
             <h2>{data.product_price}€</h2>
             {data.product_details.map((detail) => {
