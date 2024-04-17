@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import CardContainer from "./CardContainer";
 
 const OtherProductsBySeller = ({ sellerId, id }) => {
   const [otherProducts, setOtherProducts] = useState([]);
@@ -32,17 +33,13 @@ const OtherProductsBySeller = ({ sellerId, id }) => {
 
   return (
     <div>
-      <h2>Articles disponibles</h2>
+      <h2>Du même vendeur</h2>
       <ul>
         {otherProducts.map((product) => (
           <li key={product._id}>
             {sellerId === product.owner._id ? (
               <Link to={`/Offer/${product._id}`}>
-                <div>{product.product_name}</div>
-                <div>
-                  <img src={product.product_image.secure_url} alt="" />
-                </div>
-                <div></div>
+                <CardContainer data={{ offers: [product] }} />
               </Link>
             ) : null}
           </li>
