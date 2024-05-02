@@ -1,0 +1,8 @@
+@media (max-width: 680px) {
+  .avatar {
+    border-top: solid 1px grey;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+  }
+}

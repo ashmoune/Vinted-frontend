@@ -15,8 +15,11 @@ const OtherProductsBySeller = ({ sellerId, id }) => {
         const filteredProduct = response.data.offers.filter(
           (product) => product._id !== id
         );
+        console.log(response.data);
+        // console.log(filteredProduct);
         //mise à jour des autres produits avec le filtre
         setOtherProducts(filteredProduct);
+        // console.log(otherProducts);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching other products:", error);
@@ -37,9 +40,11 @@ const OtherProductsBySeller = ({ sellerId, id }) => {
       <ul>
         {otherProducts.map((product) => (
           <li key={product._id}>
+            {/* parmis toutes les offres on retient celle avec le meme owner ID */}
             {sellerId === product.owner._id ? (
               <Link to={`/Offer/${product._id}`}>
                 <CardContainer data={{ offers: [product] }} />
+                {/* console.log([product]); */}
               </Link>
             ) : null}
           </li>

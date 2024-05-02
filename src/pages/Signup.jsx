@@ -43,55 +43,62 @@ const SignUp = ({ handleToken }) => {
 
   return (
     <>
-      <h2>S'inscrire</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-          required
-        />
-        <label>
+      {" "}
+      <main className="signup">
+        <h2>Inscris-toi avec ton email</h2>
+        <form onSubmit={handleSubmit} className="signup-form">
           <input
-            type="checkbox"
-            name="newsletter"
-            checked={newsLetter}
-            onChange={() => {
-              setNewsLetter(!newsLetter);
+            type="text"
+            name="username"
+            placeholder="Nom d'utilisateur"
+            value={username}
+            onChange={(event) => {
+              setUsername(event.target.value);
             }}
+            required
           />
-          Recevoir la newsletter
-        </label>
-        <button>
-          <input type="submit" value="S'inscrire" />
-          {error && <p>{error} </p>}
-        </button>
-      </form>
-      <Link to="/Login">Tu as déjà un compte ? Connecte-toi !</Link>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+            required
+          />
+          <label className="newsletter-label">
+            <input
+              type="checkbox"
+              name="newsletter"
+              checked={newsLetter}
+              onChange={() => {
+                setNewsLetter(!newsLetter);
+              }}
+              className="newsletter-checkbox"
+            />
+            <span>Recevoir la newsletter</span>
+          </label>
+          <button type="submit" value="S'inscrire" className="signup-button">
+            {error && <p>{error} </p>}
+            S'inscrire
+          </button>
+        </form>
+        Tu as déjà un compte ?
+        <Link to="/Login" className="redirection">
+          Connecte-toi !
+        </Link>
+      </main>
     </>
   );
 };

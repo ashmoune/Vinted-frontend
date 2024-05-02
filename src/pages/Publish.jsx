@@ -42,12 +42,13 @@ const Publish = ({ userToken }) => {
   };
 
   return userToken ? (
-    <form>
+    <form className="publish-form">
       <input
         type="file"
         onChange={(event) => {
           setPicture(event.target.files[0]);
         }}
+        className="file-input"
       />
       <input
         value={title}

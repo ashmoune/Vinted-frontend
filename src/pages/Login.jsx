@@ -28,27 +28,28 @@ const Login = ({ handleToken }) => {
 
   return (
     <>
-      <form className="signup-container" onSubmit={handleSubmit}>
-        <h1>Se connecter</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <input></input>
-        <button type="submit">Se connecter</button>
-      </form>
+      <main className="login">
+        <h2>Bienvenue</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <button type="submit">Se connecter</button>
+        </form>
+      </main>
       {error && <p className="error-message">{error}</p>}
     </>
   );

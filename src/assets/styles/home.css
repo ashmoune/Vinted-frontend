@@ -72,3 +72,50 @@
   padding: 12px;
   font-size: 15px;
 }
+.image-web {
+  display: flex;
+  flex-direction: column-reverse;
+}
+/* 
+ ---------------RESPONSIVE ---------------
+
+*/
+
+@media (max-width: 768px) {
+  .image-web .box {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto 0;
+    background-color: white;
+    text-align: center;
+    height: 270px;
+    width: 410px;
+    border-radius: 5px;
+  }
+
+  .box button {
+    margin-top: 30px;
+    margin-right: 60px;
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .home-card-wrapper {
+    width: 100%;
+    height: 300px;
+    margin-right: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+}
