@@ -21,12 +21,15 @@ const SignUp = ({ handleToken }) => {
     e.preventDefault();
     try {
       setError("");
-      const response = await axios.post("http://localhost:3000/user/signup", {
-        email: email,
-        username: username,
-        password: password,
-        newsletter: newsLetter,
-      });
+      const response = await axios.post(
+        "https://site--backend-vinted--rh6mx4gc4kyd.code.run/user/signup",
+        {
+          email: email,
+          username: username,
+          password: password,
+          newsletter: newsLetter,
+        }
+      );
 
       // J'enregistre le token dans mon state et mes cookies
       handleToken(response.data.token);

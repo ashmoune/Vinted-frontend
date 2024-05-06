@@ -9,7 +9,9 @@ const OtherProductsBySeller = ({ sellerId, id }) => {
   useEffect(() => {
     const fetchOtherProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/offers/`);
+        const response = await axios.get(
+          `https://site--backend-vinted--rh6mx4gc4kyd.code.run/offers/`
+        );
         // console.log(response.data);
         // stocke dans une variable toutes les offres correspondantes sauf celles de l'ID
         const filteredProduct = response.data.offers.filter(
