@@ -11,12 +11,15 @@ const CardContainer = ({ data }) => {
           data.offers.map((offer) => (
             <div className="card-avatar-username" key={offer._id}>
               <div className="avatar">
-                {offer.owner.account &&
+                {offer.owner &&
+                  offer.owner.account &&
                   offer.owner.account.avatar &&
                   offer.owner.account.avatar.secure_url && (
                     <img src={offer.owner.account.avatar.secure_url} alt="" />
                   )}
-                {offer.owner.account.username}
+                {offer.owner &&
+                  offer.owner.account &&
+                  offer.owner.account.username}
               </div>
               <Link key={offer.product_name} to={`/Offer/${offer._id}`}>
                 {offer.product_image && offer.product_image.secure_url && (
