@@ -16,7 +16,7 @@ const Home = ({ search, sortPrice }) => {
           sortPrice ? "price-desc" : "price-asc"
         }&title=${search}`
       );
-      // console.log(response.data);
+      console.log(response.data);
       setData(response.data);
       setIsLoading(false);
     };
