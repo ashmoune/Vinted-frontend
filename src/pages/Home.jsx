@@ -12,7 +12,7 @@ const Home = ({ search, sortPrice }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `site--backend-vinted--rh6mx4gc4kyd.code.run/offers?sort=${
+        `https://site--backend-vinted--rh6mx4gc4kyd.code.run/offers?sort=${
           sortPrice ? "price-desc" : "price-asc"
         }&title=${search}`
       );
