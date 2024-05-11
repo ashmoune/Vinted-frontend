@@ -4,7 +4,7 @@
 
 Ce projet est une réplique site web Vinted, où vous pouvez rechercher vos personnages et comics préférés. Il a été réalisé dans le cadre de ma formation au Réacteur. Ce projet a été developpé avec React pour le Front-End.
 
-![capture d'écran](/assets/images/Vinted2.png)
+![capture d'écran](./assets/images/Vinted2.png)
 
 Il est composé des pages suivantes:
 
