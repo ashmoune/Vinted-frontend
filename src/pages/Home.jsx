@@ -50,6 +50,14 @@ const Home = ({ search, sortPrice }) => {
           {/* composant card container */}
           <CardContainer data={data} />
         </div>
+        <footer>
+          <p>
+            {" "}
+            <span>{/* <img src="" alt="">  */}</span> Made at{" "}
+            <a href="https://www.lereacteur.io/"> Le Reacteur</a> by{" "}
+            <a href="https://github.com/ashmoune"> Hadrien MONNIOT</a>
+          </p>
+        </footer>{" "}
       </div>
     </>
   );

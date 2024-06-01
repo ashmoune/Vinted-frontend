@@ -76,6 +76,31 @@
   display: flex;
   flex-direction: column-reverse;
 }
+
+footer {
+  height: 120px;
+  background-color: #faf1ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a {
+  color: black;
+  font-family: TS-med;
+  text-decoration: none;
+}
+footer p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+footer img {
+  height: 2em;
+  width: 2em;
+}
 /* 
  ---------------RESPONSIVE ---------------
 
